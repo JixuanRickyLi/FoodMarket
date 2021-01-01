@@ -1,0 +1,37 @@
+<div class="perCategory">
+
+  <div class="category" *ngFor="let categoryVo of products; let i = index">
+    <h2><strong>{{categoryVo.typeName}}</strong></h2>
+    <mat-divider></mat-divider>
+    <div class="food">
+      <mat-grid-list cols="4" gutterSize="20px">
+        <mat-grid-tile *ngFor = "let productVO of categoryVo.productVOList; let j = index">
+          <mat-card class="main-card" >
+            <img mat-card-image [src]="productVO.productImage">
+            <mat-grid-list  cols="2">
+              <mat-grid-tile>
+                <mat-card-title>{{productVO.productName}}</mat-card-title>
+<!--                <mat-card-subtitle><br/>{{productVO.productDescription}}</mat-card-subtitle>-->
+<!--                <strong>Price: </strong> ${{productVO.productPrice}}-->
+                <strong>Stock: </strong> {{productVO.productStock}}
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-card-actions>
+                  <button mat-mini-fab class="transactionButton" color="primary"
+                          (click)="productInfo(productVO)">
+                    <mat-icon>menu</mat-icon>
+                  </button>
+                  <button mat-mini-fab class="transactionButton" color="accent"
+                          (click)="addToCart(i, j, productVO)"
+                          [disabled]="productVO.productStock <= 0">
+                    <mat-icon>shopping_cart</mat-icon>
+                  </button>
+                </mat-card-actions>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

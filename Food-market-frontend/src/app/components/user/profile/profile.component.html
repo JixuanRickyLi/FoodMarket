@@ -1,0 +1,72 @@
+
+
+<div class="container">
+  <div class="title">
+    <h2>{{user.name}}</h2>
+
+    Username: {{user.username}}
+  </div>
+
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
+
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="name"
+        [ngModel]="user.name"
+        name="name"
+        required>
+      <mat-error>
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="email"
+        [ngModel]="user.email"
+        name="email"
+        email
+        required>
+      <mat-error>
+        Email Address must be valid
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="phone"
+        [ngModel]="user.tel"
+        name="phone"
+        required>
+      <mat-error>
+        Phone number is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="address"
+        [ngModel]="user.address"
+        name="address"
+        required>
+      <mat-error>
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Sign up button -->
+    <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Update profile</button>
+    <mat-error *ngIf="errMsg">
+      {{errMsg}}
+    </mat-error>
+
+
+    <!-- Terms of service -->
+  </form>
+</div>
+
+
+
+

@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>My Orders</h1>
+  <mat-card *ngFor="let order of orderList; let i = index">
+    <mat-card-title>Order ID: {{order.orderId}}
+      (Status: {{order.payStatus | paystatus}}, {{order.orderStatus | orderstatus}})</mat-card-title>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <table>
+        <tr>
+          <td><strong>Order Placed:</strong> {{order.createTime | date }}</td>
+          <td><strong>Total:</strong> CDN$ {{order.orderAmount}}</td>
+          <td><strong>Status:</strong>{{order.orderStatus | orderstatus}}</td>
+        </tr>
+        <tr>
+          <td><strong>Name:</strong> {{order.buyerName}}</td>
+          <td><strong>Phone:</strong> {{order.buyerPhone}}</td>
+          <td><strong>Address:</strong> {{order.buyerAddress}}</td>
+        </tr>
+      </table>
+      <div *ngFor="let orderItem of order.orderItemVOList; let j = index">
+        <div class="product-info" fxLayout="row">
+          <div fxFlex="20%">
+            <img
+              [src]="orderItem.productImage"
+              alt="{{ orderItem.productName }}"
+              class="img-responsive"
+              style="max-height: 100px;">
+          </div>
+          <div fxFlex="20%">
+            <strong>{{orderItem.productName}}</strong>
+            <p>{{ orderItem.productDescription }}</p>
+          </div>
+          <div fxFlex="20%">
+            <strong>price:</strong> {{orderItem.productPrice}}
+          </div>
+          <div fxFlex="20%">
+            <strong>amount:</strong> {{orderItem.quantity}}
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex fxLayoutAlign="flex-end">
+          <button mat-raised-button color="primary"
+                  (click)="confirmPay(order.orderAmount, i)"
+                  [disabled]="order.payStatus !== 0">Pay this order</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

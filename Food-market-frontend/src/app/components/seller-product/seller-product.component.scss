@@ -1,0 +1,28 @@
+//table {
+//  width: 100%;
+//}
+mat-card {
+  margin: 20px;
+  width: 70%;
+  height: 150px;
+}
+
+button {
+  margin: 50px 20px 20px 20px;
+}
+
+.card:hover {
+  box-shadow: -1px 10px 29px 0px rgba(0,0,0,0.8);
+}
+
+.card-button {
+  float: right;
+}
+
+mat-card-subtitle {
+  font-size: x-large;
+}
+
+.desc {
+  font-size: large;
+}

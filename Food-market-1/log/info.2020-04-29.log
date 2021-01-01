@@ -1,0 +1,19 @@
+Starting FoodmarketApplication on LAPTOP-FOKPE9RJ with PID 15200 (C:\ConcordiaCode\soen487\a3\foodmarket-backend\target\classes started by jerry in C:\ConcordiaCode\soen487\a3\foodmarket-backend)
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 54ms. Found 5 JPA repository interfaces.
+Tomcat initialized with port(s): 8080 (http)
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 908 ms
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HHH000342: Could not obtain connection to query metadata : Access denied for user 'root'@'localhost' (using password: YES)
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+Stopping service [Tomcat]
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.

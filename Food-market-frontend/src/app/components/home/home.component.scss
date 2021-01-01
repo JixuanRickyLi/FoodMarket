@@ -1,0 +1,44 @@
+.product{
+  background-color: aqua;
+  height: 500px;
+}
+
+.perCategory{
+  padding: 1em 3em;
+  margin-bottom: 200px;
+}
+
+.title-tile {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+};
+
+.transactionButton{
+  margin-left: 10px;
+}
+
+mat-card-title{
+  font-size: 12pt
+}
+mat-card{
+  width: 80%;
+  height:90%;
+}
+
+img {
+  height: 60%;
+}
+
+mat-list{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.category {
+  margin-top: 30px;
+}
+
+.food {
+  margin-top: 30px;
+}

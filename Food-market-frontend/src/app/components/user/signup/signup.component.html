@@ -1,0 +1,104 @@
+<!-- Material form register -->
+<mat-card>
+
+  <mat-card-header fxLayoutAlign="center">
+    <mat-card-title>
+      <strong>Sign up</strong>
+    </mat-card-title>
+  </mat-card-header>
+
+  <!--Card content-->
+  <mat-card-content>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="username"
+          ngModel
+          name="username"
+          required>
+        <mat-error>
+          User name can not be empty.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="password"
+          [type]="hide ? 'password' : 'text'"
+          ngModel
+          name="password"
+          required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="name"
+          ngModel
+          name="name"
+          required>
+        <mat-error>
+          Name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="email"
+          ngModel
+          name="email"
+          email
+          required>
+        <mat-error>
+          Email Address must be valid
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="phone"
+          ngModel
+          name="phone"
+          required>
+        <mat-error>
+          Phone number is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="address"
+          ngModel
+          name="address"
+          required>
+        <mat-error>
+          Address number is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Sign up button -->
+      <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Sign up</button>
+      <mat-error *ngIf="errMsg">
+        {{errMsg}}
+      </mat-error>
+
+      <hr>
+
+      <!-- Terms of service -->
+      <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>. </p>
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>
+

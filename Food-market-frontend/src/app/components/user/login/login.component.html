@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <h2>Log In</h2>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="username"
+          ngModel
+          name="username"
+          required>
+        <mat-error>
+          User name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          ngModel
+          name="password"
+          placeholder="Password"
+          required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>
+          password is required
+        </mat-error>
+      </mat-form-field>
+      <button [disabled]="!f.valid" mat-raised-button color="primary">Login</button>
+      <mat-error *ngIf="errMsg">
+        {{errMsg}}
+      </mat-error>
+    </form>
+<!--    <div class="forget">-->
+<!--      <a style="cursor: pointer;" (click)="forget()">Forgot Password?</a>-->
+<!--    </div>-->
+  </mat-card-content>
+</mat-card>

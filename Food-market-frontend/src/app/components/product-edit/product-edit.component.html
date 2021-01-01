@@ -1,0 +1,84 @@
+<!-- Material form register -->
+<mat-card>
+
+  <mat-card-header fxLayoutAlign="center">
+    <mat-card-title>
+      <strong>Edit a dish</strong>
+    </mat-card-title>
+  </mat-card-header>
+
+  <!--Card content-->
+  <mat-card-content>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="dish name"
+          [ngModel]="product.productName"
+          name="name"
+          required>
+        <mat-error>
+          dish name can not be empty.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="price"
+          [ngModel]="product.productPrice"
+          type="number"
+          name="price"
+          required>
+        <mat-error>
+          price is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="stock"
+          [ngModel]="product.productStock"
+          type="number"
+          name="stock"
+          required>
+        <mat-error>
+          stock is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Description"
+          [ngModel]="product.productDescription"
+          name="description">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Image URL"
+          [ngModel]="product.productImage"
+          name="image">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <mat-label>Food Category</mat-label>
+        <mat-select (selectionChange)=change($event)>
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.typeName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Submit</button>
+      <mat-error *ngIf="errMsg">
+        {{errMsg}}
+      </mat-error>
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>
+
+
+

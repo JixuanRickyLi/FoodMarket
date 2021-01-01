@@ -1,0 +1,89 @@
+
+
+<button mat-raised-button color="primary" (click)="createProduct()">
+  Post New Food
+</button>
+
+<mat-card fxLayout="row" class="card" *ngFor="let product of productModels; let i = index">
+
+  <div fxFlex="20%">
+    <img
+      [src]="product.productImage"
+      alt="{{ product.productName }}"
+      class="img-responsive"
+      style="max-height: 100px;">
+  </div>
+  <div fxFlex="60%" fxLayout="column">
+    <mat-card-title fxFlex="30%">(ID: {{product.productId}}) {{product.productName}}</mat-card-title>
+    <mat-card-subtitle fxFlex="30%">{{product.productDescription}}</mat-card-subtitle>
+    <mat-card-content fxLayout="row">
+      <div class="desc" fxFlex="20%">
+        <strong>Stock:</strong> {{product.productStock}}
+      </div>
+      <div class="desc"  fxFlex="30%">
+        <strong>Status:</strong> {{product.productStatus | productstatus}}
+      </div>
+      <div class="desc"  fxFlex="30%">
+        <strong>category:</strong> {{product.category}}
+      </div>
+    </mat-card-content>
+  </div>
+  <div fxFlex="20%">
+    <button class="card-button" mat-icon-button (click)="confirmDelete(i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button class="card-button" mat-icon-button (click)="editProduct(product)">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+</mat-card>
+
+
+<!--<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">-->
+
+<!--  <ng-container matColumnDef="position">-->
+<!--    <th mat-header-cell *matHeaderCellDef> No. </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.position}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="name">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Name </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.name}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="image">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Image </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.image}} </td>td-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="price">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Price </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.price}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="description">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Description </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.description}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="stock">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Stock </th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element.stock}} </td>-->
+<!--  </ng-container>-->
+
+
+<!--  <ng-container matColumnDef="modify">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Modify </th>-->
+<!--    <td mat-cell *matCellDef="let element"><button>Modify</button></td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="outofstock">-->
+<!--    <th mat-header-cell *matHeaderCellDef>Take off shelves</th>-->
+<!--    <td mat-cell *matCellDef="let element"><button>Take off shelves</button></td>-->
+<!--  </ng-container>-->
+
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+
+<!--</table>-->
+

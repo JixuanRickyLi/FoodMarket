@@ -1,0 +1,50 @@
+<div class="container">
+  <h2 *ngIf="orderItems.length == 0">Your cart is empty.</h2>
+  <form *ngIf="orderItems.length != 0" #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
+
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="name"
+        [ngModel]="user.name"
+        name="name"
+        required>
+      <mat-error>
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="phone"
+        [ngModel]="user.tel"
+        name="phone"
+        required>
+      <mat-error>
+        Phone number is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        matInput
+        placeholder="address"
+        [ngModel]="user.address"
+        name="address"
+        required>
+      <mat-error>
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-card *ngFor="let orderItem of orderItems">
+      name: {{orderItem.productName}}
+      quantity: {{orderItem.quantity}}
+    </mat-card>
+    <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Place this order</button>
+    <mat-error *ngIf="errMsg">
+      {{errMsg}}
+    </mat-error>
+
+  </form>
+</div>
+
